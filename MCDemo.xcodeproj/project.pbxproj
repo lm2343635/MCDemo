@@ -17,6 +17,8 @@
 		E4B5FC3A1C6DB58E002D1394 /* MCDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B5FC391C6DB58E002D1394 /* MCDemoTests.m */; };
 		E4B5FC451C6DB58E002D1394 /* MCDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B5FC441C6DB58E002D1394 /* MCDemoUITests.m */; };
 		E4B5FC541C6DB5FC002D1394 /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B5FC531C6DB5FC002D1394 /* ConnectionsViewController.m */; };
+		E4B5FC571C6DBB24002D1394 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B5FC561C6DBB24002D1394 /* MCManager.m */; };
+		E4B5FC591C6DBB75002D1394 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B5FC581C6DBB75002D1394 /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,9 @@
 		E4B5FC461C6DB58E002D1394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4B5FC521C6DB5FC002D1394 /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsViewController.h; sourceTree = "<group>"; };
 		E4B5FC531C6DB5FC002D1394 /* ConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsViewController.m; sourceTree = "<group>"; };
+		E4B5FC551C6DBB24002D1394 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
+		E4B5FC561C6DBB24002D1394 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
+		E4B5FC581C6DBB75002D1394 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B5FC591C6DBB75002D1394 /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,7 @@
 		E4B5FC101C6DB58E002D1394 = {
 			isa = PBXGroup;
 			children = (
+				E4B5FC581C6DBB75002D1394 /* MultipeerConnectivity.framework */,
 				E4B5FC1B1C6DB58E002D1394 /* MCDemo */,
 				E4B5FC381C6DB58E002D1394 /* MCDemoTests */,
 				E4B5FC431C6DB58E002D1394 /* MCDemoUITests */,
@@ -107,6 +114,8 @@
 		E4B5FC1B1C6DB58E002D1394 /* MCDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E4B5FC551C6DBB24002D1394 /* MCManager.h */,
+				E4B5FC561C6DBB24002D1394 /* MCManager.m */,
 				E4B5FC1F1C6DB58E002D1394 /* AppDelegate.h */,
 				E4B5FC201C6DB58E002D1394 /* AppDelegate.m */,
 				E4B5FC221C6DB58E002D1394 /* FirstViewController.h */,
@@ -281,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B5FC541C6DB5FC002D1394 /* ConnectionsViewController.m in Sources */,
+				E4B5FC571C6DBB24002D1394 /* MCManager.m in Sources */,
 				E4B5FC271C6DB58E002D1394 /* SecondViewController.m in Sources */,
 				E4B5FC211C6DB58E002D1394 /* AppDelegate.m in Sources */,
 				E4B5FC241C6DB58E002D1394 /* FirstViewController.m in Sources */,

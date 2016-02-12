@@ -108,6 +108,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="Ha8-bV-YoJ" id="hyn-Nl-m1I"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Visible to others?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwM-Q5-UhP">
                                 <rect key="frame" x="20" y="85" width="132" height="21"/>
@@ -117,6 +120,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSW-04-unS">
                                 <rect key="frame" x="531" y="80" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleVisibility:" destination="Ha8-bV-YoJ" eventType="valueChanged" id="7cU-Ig-myF"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn6-Pj-uDR">
                                 <rect key="frame" x="20" y="119" width="560" height="44"/>
@@ -127,6 +133,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="browseForDevices:" destination="Ha8-bV-YoJ" eventType="touchUpInside" id="Jjt-h9-UWV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-3S-QI8">
                                 <rect key="frame" x="20" y="171" width="560" height="44"/>
@@ -137,6 +146,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="disconnect:" destination="Ha8-bV-YoJ" eventType="touchUpInside" id="EV2-Ok-eav"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C7M-G1-9kc">
                                 <rect key="frame" x="20" y="223" width="560" height="320"/>
@@ -154,7 +166,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="C7M-G1-9kc" secondAttribute="trailing" id="zl6-Vj-602"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Connections" id="dQd-C4-SNW"/>
+                    <tabBarItem key="tabBarItem" title="Connections" image="first" id="dQd-C4-SNW"/>
+                    <connections>
+                        <outlet property="connectedDevicesTableView" destination="C7M-G1-9kc" id="KoZ-7A-Sgc"/>
+                        <outlet property="disconnectButton" destination="2Oh-3S-QI8" id="Dxq-AJ-Bgc"/>
+                        <outlet property="nameTextField" destination="tdL-Tz-xbp" id="rqt-RP-hDY"/>
+                        <outlet property="visibleSwitch" destination="xSW-04-unS" id="6IC-YI-7uQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Hk-lJ-lts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface ConnectionsViewController : UIViewController
+@interface ConnectionsViewController : UIViewController <MCBrowserViewControllerDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *visibleSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *disconnectButton;
+@property (weak, nonatomic) IBOutlet UITableView *connectedDevicesTableView;
+
+- (IBAction)browseForDevices:(id)sender;
+- (IBAction)toggleVisibility:(id)sender;
+- (IBAction)disconnect:(id)sender;
 
 @end
