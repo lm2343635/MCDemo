@@ -12,6 +12,9 @@
 @interface ConnectionsViewController ()
 
 @property (nonatomic, strong) AppDelegate *delegate;
+@property (nonatomic, strong) NSMutableArray *connectedDevices;
+
+-(void)peerDidChangeStateWithNotification: (NSNotification *)notification;
 
 @end
 
@@ -25,22 +28,33 @@
     _delegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     [_delegate.mcManager setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
     [_delegate.mcManager advertiseSelf:_visibleSwitch.isOn];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(peerDidChangeStateWithNotification:)
+                                                 name:@"MCDidChangeStateNotification"
+                                               object:nil];
+    _connectedDevices=[[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(DEBUG) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    return _connectedDevices.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(DEBUG) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
+    }
+    cell.textLabel.text = [_connectedDevices objectAtIndex:indexPath.row];
+    return cell;
 }
-*/
+
 
 #pragma mark - MCBrowserViewControllerDelegate
 -(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
@@ -94,11 +108,40 @@
     if(DEBUG) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    [_delegate.mcManager advertiseSelf:_visibleSwitch.isOn];
 }
 
 - (IBAction)disconnect:(id)sender {
     if(DEBUG) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    _nameTextField.enabled=YES;
+    [_connectedDevices removeAllObjects];
+    [_connectedDevicesTableView reloadData];
+}
+
+#pragma mark - Notification
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification {
+    if(DEBUG) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    MCPeerID *peerID=[[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName=peerID.displayName;
+    MCSessionState state=[[[notification userInfo] objectForKey:@"state"] intValue];
+    if (state!=MCSessionStateConnecting) {
+        if(state==MCSessionStateConnected) {
+            [_connectedDevices addObject:peerDisplayName];
+        } else if (state==MCSessionStateNotConnected) {
+            if(_connectedDevices.count>0) {
+                [_connectedDevices removeObjectAtIndex:[_connectedDevices indexOfObject:peerDisplayName]];
+            }
+        }
+        NSLog(@"%@", _connectedDevices);
+        [_connectedDevicesTableView reloadData];
+        BOOL peerExsit=(_delegate.mcManager.session.connectedPeers.count==0);
+        [_disconnectButton setEnabled:!peerExsit];
+        [_nameTextField setEnabled:peerExsit];
     }
 }
 @end

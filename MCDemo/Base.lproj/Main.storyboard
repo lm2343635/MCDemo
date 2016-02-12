@@ -153,6 +153,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C7M-G1-9kc">
                                 <rect key="frame" x="20" y="223" width="560" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ha8-bV-YoJ" id="4QE-Pf-ACk"/>
+                                    <outlet property="delegate" destination="Ha8-bV-YoJ" id="Vzd-n2-VVO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,6 +167,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="DwM-Q5-UhP" secondAttribute="leading" id="MXC-7G-328"/>
                             <constraint firstItem="Y4b-w6-S6n" firstAttribute="top" secondItem="C7M-G1-9kc" secondAttribute="bottom" constant="8" id="N7K-jr-B7I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tdL-Tz-xbp" secondAttribute="trailing" id="Y4s-3G-74t"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="C7M-G1-9kc" secondAttribute="leading" id="cK0-Wg-zvq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C7M-G1-9kc" secondAttribute="trailing" id="zl6-Vj-602"/>
                         </constraints>
                     </view>

@@ -22,7 +22,13 @@
 }
 
 -(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
-    
+    NSDictionary *dictionary=@{
+                               @"peerID": peerID,
+                               @"state": [NSNumber numberWithInt:state]
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidChangeStateNotification"
+                                                        object:nil
+                                                      userInfo:dictionary];
 }
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
