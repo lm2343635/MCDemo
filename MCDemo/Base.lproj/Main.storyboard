@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -45,7 +46,7 @@
                                     <action selector="sendMessage:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PI4-Vh-kUX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-Om-Yzb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e3-Om-Yzb">
                                 <rect key="frame" x="20" y="118" width="560" height="425"/>
                                 <color key="backgroundColor" red="0.93738410776614312" green="0.93738410776614312" blue="0.93738410776614312" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -57,6 +58,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="2e3-Om-Yzb" secondAttribute="leading" id="4f1-Dz-avI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7mL-pW-stE" secondAttribute="trailing" id="52k-Yp-1Xk"/>
                             <constraint firstItem="2e3-Om-Yzb" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="98" id="PxW-Rw-Gs8"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="3Fl-ih-TMe" secondAttribute="leading" id="dFp-UB-jf2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3Fl-ih-TMe" secondAttribute="trailing" id="eR2-Ew-Ex3"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="2e3-Om-Yzb" secondAttribute="bottom" constant="8" id="foQ-z9-snO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2e3-Om-Yzb" secondAttribute="trailing" id="hKz-ea-6tI"/>
@@ -191,11 +193,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xSW-04-unS" secondAttribute="trailing" id="0Bs-eH-08Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Oh-3S-QI8" secondAttribute="trailing" id="8oE-ds-4Y3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bn6-Pj-uDR" secondAttribute="trailing" id="GWN-qB-L2K"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2Oh-3S-QI8" secondAttribute="leading" id="L8J-YV-w0W"/>
                             <constraint firstAttribute="leadingMargin" secondItem="DwM-Q5-UhP" secondAttribute="leading" id="MXC-7G-328"/>
                             <constraint firstItem="Y4b-w6-S6n" firstAttribute="top" secondItem="C7M-G1-9kc" secondAttribute="bottom" constant="8" id="N7K-jr-B7I"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tdL-Tz-xbp" secondAttribute="leading" id="WB2-YW-S2B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tdL-Tz-xbp" secondAttribute="trailing" id="Y4s-3G-74t"/>
                             <constraint firstAttribute="leadingMargin" secondItem="C7M-G1-9kc" secondAttribute="leading" id="cK0-Wg-zvq"/>
                             <constraint firstItem="C7M-G1-9kc" firstAttribute="top" secondItem="750-qw-hkz" secondAttribute="bottom" constant="203" id="mgN-Ge-HKL"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="bn6-Pj-uDR" secondAttribute="leading" id="u71-lf-P6W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C7M-G1-9kc" secondAttribute="trailing" id="zl6-Vj-602"/>
                         </constraints>
                     </view>
