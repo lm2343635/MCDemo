@@ -33,6 +33,12 @@
                                                  name:@"MCDidChangeStateNotification"
                                                object:nil];
     _connectedDevices=[[NSMutableArray alloc] init];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSString *displayName=[defaults objectForKey:@"displayName"];
+    if(displayName!=nil) {
+        [_nameTextField setText:displayName];
+        [self useDisplayName:displayName];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -79,16 +85,9 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     [_nameTextField resignFirstResponder];
-    _delegate.mcManager.peerID=nil;
-    _delegate.mcManager.session=nil;
-    _delegate.mcManager.browserViewController=nil;
-    if(_visibleSwitch.isOn) {
-        [_delegate.mcManager.advertiserAssistant stop];
-    }
-    _delegate.mcManager.advertiserAssistant=nil;
-    [_delegate.mcManager setupPeerAndSessionWithDisplayName:_nameTextField.text];
-    [_delegate.mcManager setupMCBrowser];
-    [_delegate.mcManager advertiseSelf:_visibleSwitch.isOn];
+    [self useDisplayName:_nameTextField.text];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:_nameTextField.text forKey:@"displayName"];
     return YES;
 }
 
@@ -125,7 +124,6 @@
     if(DEBUG) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    
     MCPeerID *peerID=[[notification userInfo] objectForKey:@"peerID"];
     NSString *peerDisplayName=peerID.displayName;
     MCSessionState state=[[[notification userInfo] objectForKey:@"state"] intValue];
@@ -143,5 +141,22 @@
         [_disconnectButton setEnabled:!peerExsit];
         [_nameTextField setEnabled:peerExsit];
     }
+}
+
+#pragma mark - Functions 
+-(void)useDisplayName: (NSString *)displayName {
+    if(DEBUG) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    _delegate.mcManager.peerID=nil;
+    _delegate.mcManager.session=nil;
+    _delegate.mcManager.browserViewController=nil;
+    if(_visibleSwitch.isOn) {
+        [_delegate.mcManager.advertiserAssistant stop];
+    }
+    _delegate.mcManager.advertiserAssistant=nil;
+    [_delegate.mcManager setupPeerAndSessionWithDisplayName:displayName];
+    [_delegate.mcManager setupMCBrowser];
+    [_delegate.mcManager advertiseSelf:_visibleSwitch.isOn];
 }
 @end
