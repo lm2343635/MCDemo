@@ -62,6 +62,20 @@ didStartReceivingResourceWithName:(NSString *)resourceName
     if(DEBUG) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    NSDictionary *dictionary=@{
+                               @"resourceName": resourceName,
+                               @"peerID": peerID,
+                               @"progress": progress
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidStartReceivingResourceNotification"
+                                                        object:nil
+                                                      userInfo:dictionary];
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [progress addObserver:self
+                  forKeyPath:@"fractionCompleted"
+                     options:NSKeyValueObservingOptionNew
+                     context:nil];
+    });
 }
 
 -(void)session:(MCSession *)session
@@ -72,6 +86,14 @@ didFinishReceivingResourceWithName:(NSString *)resourceName
     if(DEBUG) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    NSDictionary *dictionary=@{
+                               @"resourceName": resourceName,
+                               @"peerID": peerID,
+                               @"localURL": localURL
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishReceivingResourceNotification"
+                                                        object:nil
+                                                      userInfo:dictionary];
 }
 
 -(void)session:(MCSession *)session
@@ -114,6 +136,19 @@ didReceiveStream:(NSInputStream *)stream
         [_advertiserAssistant stop];
         _advertiserAssistant=nil;
     }
+}
+
+#pragma mark - Observer
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary<NSString *,id> *)change
+                      context:(void *)context {
+    if(DEBUG) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MCReceivingProgressNotification"
+                                                        object:nil
+                                                      userInfo:@{@"progress": (NSProgress *)object}];
 }
 
 @end
