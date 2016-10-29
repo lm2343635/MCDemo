@@ -62,9 +62,7 @@
                                     <action selector="cancelMessage:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cT6-ch-Fma"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-pW-stE">
-                                <frame key="frameInset" minX="544" minY="120" width="36" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-pW-stE">
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sendMessage:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PI4-Vh-kUX"/>
@@ -76,11 +74,13 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="2e3-Om-Yzb" secondAttribute="bottom" constant="8" id="ARf-hU-Ce4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2e3-Om-Yzb" secondAttribute="trailing" id="Ns2-rm-Sux"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n9D-8M-u2h" secondAttribute="trailing" constant="-16" id="OGv-TZ-Frz"/>
+                            <constraint firstItem="7mL-pW-stE" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="100" id="Pgu-WL-V8O"/>
                             <constraint firstItem="2e3-Om-Yzb" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="138" id="UoX-sG-bfu"/>
                             <constraint firstItem="n9D-8M-u2h" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="fPP-1T-jQ9"/>
                             <constraint firstItem="2e3-Om-Yzb" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="4" id="gUq-WD-75R"/>
                             <constraint firstItem="n9D-8M-u2h" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="iN9-Ck-Sba"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3Fl-ih-TMe" secondAttribute="trailing" id="k4A-nI-asT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7mL-pW-stE" secondAttribute="trailing" id="nmF-a5-txd"/>
                             <constraint firstItem="3Fl-ih-TMe" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="4" id="oID-Jg-ilr"/>
                             <constraint firstItem="3Fl-ih-TMe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="48" id="zZf-5A-udc"/>
                         </constraints>
@@ -107,15 +107,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Files" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXo-pQ-RaI">
-                                    <frame key="frameInset" minX="129" minY="31" width="63" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Files" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXo-pQ-RaI">
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="0.92156862745098034" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="wXo-pQ-RaI" firstAttribute="centerX" secondItem="3yv-XL-4Up" secondAttribute="centerX" id="R9i-2b-pXc"/>
+                                <constraint firstItem="wXo-pQ-RaI" firstAttribute="top" secondItem="3yv-XL-4Up" secondAttribute="top" constant="31" id="mx4-yH-JvU"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="receiedFileIndentifier" id="uMl-eG-2Uw">
@@ -247,9 +249,7 @@
                                     <constraint firstItem="goh-5S-j2v" firstAttribute="centerX" secondItem="wLJ-SA-5Bb" secondAttribute="centerX" id="gR0-y1-lvF"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSW-04-unS">
-                                <frame key="frameInset" minX="531" minY="120" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSW-04-unS">
                                 <connections>
                                     <action selector="toggleVisibility:" destination="Ha8-bV-YoJ" eventType="valueChanged" id="7cU-Ig-myF"/>
                                 </connections>
@@ -257,6 +257,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="xSW-04-unS" secondAttribute="trailing" id="5cq-FZ-PYk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tdL-Tz-xbp" secondAttribute="trailing" id="6Al-sM-sET"/>
                             <constraint firstItem="bn6-Pj-uDR" firstAttribute="top" secondItem="750-qw-hkz" secondAttribute="bottom" constant="139" id="6Ha-B8-rX5"/>
                             <constraint firstItem="tdL-Tz-xbp" firstAttribute="leading" secondItem="6Yb-Qg-1qf" secondAttribute="leadingMargin" constant="4" id="9Ga-GI-zqW"/>
@@ -269,6 +270,7 @@
                             <constraint firstItem="Y4b-w6-S6n" firstAttribute="top" secondItem="2Oh-3S-QI8" secondAttribute="bottom" constant="264" id="Wo6-CK-PfW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Oh-3S-QI8" secondAttribute="trailing" id="XMw-ML-4IS"/>
                             <constraint firstItem="wLJ-SA-5Bb" firstAttribute="top" secondItem="750-qw-hkz" secondAttribute="bottom" constant="-20" id="arW-1t-S0H"/>
+                            <constraint firstItem="xSW-04-unS" firstAttribute="top" secondItem="750-qw-hkz" secondAttribute="bottom" constant="100" id="bMp-sn-aGk"/>
                             <constraint firstItem="Y4b-w6-S6n" firstAttribute="top" secondItem="C7M-G1-9kc" secondAttribute="bottom" id="fbP-nD-ZNp"/>
                             <constraint firstItem="C7M-G1-9kc" firstAttribute="leading" secondItem="6Yb-Qg-1qf" secondAttribute="leadingMargin" constant="4" id="gD8-rA-6Hc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bn6-Pj-uDR" secondAttribute="trailing" id="lqY-uD-o0A"/>
